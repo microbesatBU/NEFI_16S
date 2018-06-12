@@ -11,6 +11,7 @@ host <- system('hostname', intern=T)
 if(host == 'pecan2'){data.dir <- '/fs/data3/caverill/NEFI_16S_data/'}
 if(host == 'scc1'  ){data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'}
 if(host == 'scc2'  ){data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'}
+if(host == 'Colins-MacBook-Pro.local'){data.dir <- '/Users/colin/Documents/rstudio_data/NEFI_16S_data'}
 
 #raw EMP deblurred ESV table and mapping files.
 emp_esv.path <- paste0(data.dir,'emp_deblur_150bp.release1.biom')
@@ -22,3 +23,12 @@ emp_esv_clean.path <- paste0(data.dir,'emp_esv_clean.rds')
 
 #example fungal data path.
 example_fungal.path <- paste0(data.dir,'ted_all_prior_data.rds')
+
+#NEON data formatting paths.
+#product ouput paths.
+NEON_16S_site_dates.path <- paste0(data.dir,'NEON_16S_site_dates.rds')
+site_level_data_16S.path <- paste0(data.dir,'site_level_data.rds')
+dp1.10108.00_output.path <- paste0(data.dir,'dp1.10108.00_output.rds')
+dp1.10109.00_output.path <- paste0(data.dir,'dp1.10109.00_output.rds')
+dp1.10086.00_output.path <- paste0(data.dir,'dp1.10086.00_output.rds')
+dp1.10078.00_output.path <- paste0(data.dir,'dp1.10078.00_output.rds')
