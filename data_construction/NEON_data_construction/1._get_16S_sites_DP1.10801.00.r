@@ -1,5 +1,4 @@
 #Getting NEON 16S meta-data.
-#COLIN STILL NEEDS TO TEST THIS SCRIPT. Internet is too slow in tokyo airport.
 #depends on httr and jsonlite packages.
 #two outputs:
 #1. A nested list of sites and dates within site that have ITS sequence data.
@@ -34,7 +33,7 @@ for(i in 1:nrow(site_date)){
     core.files <- jsonlite::fromJSON(httr::content(core.JSON, as='text'))
     #check if it even has 16S data. If it doesn't, skip.
     if(length(grep("soilPcrAmplification_16S", core.files$data$files$name)) < 1){
-      cat(paste0(site.date,' has no 16S data. move on. '))
+      cat(paste0(site.date,' has no 16S data. move on.\n'))
       next
     }
     
@@ -85,5 +84,13 @@ for(i in 1:length(sites)){
   site_dates[[i]] <- dates
 }
 names(site_dates) <- sites
+
+#remove any NA sites.
+site_dates <- site_dates[!is.na(site_dates)]
+#remove any NA dates.
+for(i in 1:length(site_dates)){
+  site_dates[[i]] <- site_dates[[i]][!is.na(site_dates[[i]])]
+}
+
 #save site_dates output.
 saveRDS(site_dates,NEON_16S_site_dates.path)
