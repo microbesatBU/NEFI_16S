@@ -20,6 +20,10 @@ emp_map.path <- paste0(data.dir,'emp_qiime_mapping_release1.tsv')
 #processed and subsetted emp ESV and mapping files.
 emp_map_clean.path <- paste0(data.dir,'emp_map_clean.rds')
 emp_esv_clean.path <- paste0(data.dir,'emp_esv_clean.rds')
+      emp_tax.path <- paste0(data.dir,'emp_tax.rds')
+
+#greengenes training data path for RDP classifier.
+greengenes.path <- paste0(data.dir,'gg_13_8_train_set_97.fa')
 
 #example fungal data path.
 example_fungal.path <- paste0(data.dir,'ted_all_prior_data.rds')
