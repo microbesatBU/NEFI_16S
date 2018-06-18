@@ -3,8 +3,6 @@
 
 #clear environment, source paths.
 rm(list=ls())
-#I assume you are running this on scc. if not you gonna have to change this.
-#data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'
 source('paths.r')
 library(doParallel)
 
