@@ -8,6 +8,9 @@
 #.rds files can be loaded with "readRDS()", and saved with "saveRDS(R_object, path/to/file.rds)
 host <- system('hostname', intern=T)
 #data directory conditional to which computer you are working on.
+#defaults to scc directory.
+data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'
+#conditional data directory assignment.
 if(host == 'pecan2'){data.dir <- '/fs/data3/caverill/NEFI_16S_data/'}
 if(host == 'scc1'  ){data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'}
 if(host == 'scc2'  ){data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'}
@@ -20,6 +23,10 @@ emp_map.path <- paste0(data.dir,'emp_qiime_mapping_release1.tsv')
 #processed and subsetted emp ESV and mapping files.
 emp_map_clean.path <- paste0(data.dir,'emp_map_clean.rds')
 emp_esv_clean.path <- paste0(data.dir,'emp_esv_clean.rds')
+      emp_tax.path <- paste0(data.dir,'emp_tax.rds')
+
+#greengenes training data path for RDP classifier.
+greengenes.path <- paste0(data.dir,'gg_13_8_train_set_97.fa')
 
 #example fungal data path.
 example_fungal.path <- paste0(data.dir,'ted_all_prior_data.rds')
