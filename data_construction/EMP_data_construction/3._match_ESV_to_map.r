@@ -23,10 +23,8 @@ write(keep,sep="\n", file = emp_soil.csv_path)
 #do on scc
 #module load python/2.7.7
 #module load qiime/1.9.0
-#
 #cd /projectnb/talbot-lab-data/caverill/NEFI_16S_data/
 #filter_samples_from_otu_table.py -i emp_deblur_150bp.release1.biom -o emp_soils_ESV.biom --sample_id_fp emp_soil_IDs.csv
-
 #Run qiime biom filtering command from R script.
 cmd <- paste0('filter_samples_from_otu_table.py -i ',emp_esv.path,' -o ',emp_soil_biom.path,' --sample_id_fp ',emp_soil.csv_path)
 system(cmd)
