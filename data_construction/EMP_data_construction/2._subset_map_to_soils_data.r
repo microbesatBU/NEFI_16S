@@ -16,5 +16,9 @@ map <- raw.map[empo_3 == 'Soil (non-saline)' & envo_biome_1 == 'terrestrial biom
 nope <- c('cropland biome','','polar desert biome','rangeland biome')
 map <- map[!(envo_biome_3 %in% nope),]
 
+#exclude a few studies that are sand from stream water filters and agroforestry.
+nope <- c(755,1711,1714)
+map <- map[!(study_id %in% nope),]
+
 #save mapping file.
 saveRDS(map, emp_map_clean.path)
