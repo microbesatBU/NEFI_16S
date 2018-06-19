@@ -1,7 +1,7 @@
 #Based on mapping file subsetting, match the esv table to the mapping file.
-#Colin has this working, but this script won't reproduce it at the moment.
-#The files you need for downstream analysis are all in scc1:/projectnb/talbot-lab-data/caverill/NEFI_16S_data
 #Needs to be run on SCC with more RAM.
+#Colin has this working, but this script requires jumping between here and the command line on scc1.
+#Colin started writing a qsub script for this to avoid jumping back and forth from the command line, but doesn't work yet.
 #clear environment, load packges.
 rm(list=ls())
 source('paths.r')
@@ -15,17 +15,24 @@ map <- readRDS(emp_map_clean.path)
 keepers <- map[,1]
 keep <- as.data.frame(keepers)
 keep <- keep[,1]
-write(keep,sep="\n", file = paste0(data.dir,'emp_soil_IDs.csv'))
+keep <- as.character(keep)
+write(keep,sep="\n", file = emp_soil.csv_path)
 
 #filter .biom file using the emp_soil_IDs.csv file.
+####WARNING: this stopped working. either way. not sure why.
 #do on scc
 #module load python/2.7.7
 #module load qiime/1.9.0
-#filter_samples_from_otu_table.py -i emp_deblur_150bp.release1.biom -o emp_soils_ESV.biom --sample_id_fp emp_soil_IDs.csv 
+#
+#cd /projectnb/talbot-lab-data/caverill/NEFI_16S_data/
+#filter_samples_from_otu_table.py -i emp_deblur_150bp.release1.biom -o emp_soils_ESV.biom --sample_id_fp emp_soil_IDs.csv
 
+#Run qiime biom filtering command from R script.
+cmd <- paste0('filter_samples_from_otu_table.py -i ',emp_esv.path,' -o ',emp_soil_biom.path,' --sample_id_fp ',emp_soil.csv_path)
+system(cmd)
 
 #load up the esv table.
-esv.raw <- read_biom('/fs/data3/caverill/NEFI_16S_data/emp_soils_ESV.biom')
+esv.raw <- read_biom(emp_soil_biom.path)
 #convert to non-sparse matrix
 esv <- as.data.frame(as.matrix(biom_data(esv.raw)))
 
@@ -33,6 +40,7 @@ esv <- as.data.frame(as.matrix(biom_data(esv.raw)))
 esv <- esv[!(rowSums(esv) == 0),]
 
 #go ahead and remove from mapping file things that aren't actually in ESV table.
+map <- as.data.frame(map)
 map <- map[map[,1] %in% colnames(esv),]
 
 #save output.

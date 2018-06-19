@@ -20,7 +20,11 @@ if(host == 'Colins-MacBook-Pro.local'){data.dir <- '/Users/colin/Documents/rstud
 emp_esv.path <- paste0(data.dir,'emp_deblur_150bp.release1.biom')
 emp_map.path <- paste0(data.dir,'emp_qiime_mapping_release1.tsv')
 
+#.csv of EMP samples to keep for .biom filtering.
+emp_soil.csv_path <- paste0(data.dir,'emp_soil_IDs.csv')
+
 #processed and subsetted emp ESV and mapping files.
+emp_soil_biom.path <- paste0(data.dir,'emp_soils_ESV.biom')
 emp_map_clean.path <- paste0(data.dir,'emp_map_clean.rds')
 emp_esv_clean.path <- paste0(data.dir,'emp_esv_clean.rds')
       emp_tax.path <- paste0(data.dir,'emp_tax.rds')
