@@ -21,6 +21,7 @@ write(keep,sep="\n", file = paste0(data.dir,'emp_soil_IDs.csv'))
 #do on scc
 #module load python/2.7.7
 #module load qiime/1.9.0
+#cd /projectnb/talbot-lab-data/caverill/NEFI_16S_data/
 #filter_samples_from_otu_table.py -i emp_deblur_150bp.release1.biom -o emp_soils_ESV.biom --sample_id_fp emp_soil_IDs.csv 
 
 
@@ -33,6 +34,7 @@ esv <- as.data.frame(as.matrix(biom_data(esv.raw)))
 esv <- esv[!(rowSums(esv) == 0),]
 
 #go ahead and remove from mapping file things that aren't actually in ESV table.
+map <- as.data.frame(map)
 map <- map[map[,1] %in% colnames(esv),]
 
 #save output.
