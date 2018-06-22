@@ -25,14 +25,29 @@ worldclim2_grab <- function(latitude,longitude,elev = 500, n.sim = 1000){
   
   #make points an object
   points <- cbind(longitude, latitude)
+  
+  #which computer are you on?
+  host <- system('hostname', intern=T)
  
   #load mean annual temperature and precipitation rasters from worldclim2
-  prec <- raster::raster('/fs/data3/caverill/WorldClim2/wc2.0_bio_30s_12.tif')
-  temp <- raster::raster('/fs/data3/caverill/WorldClim2/wc2.0_bio_30s_01.tif')
-  
   #load runjags summaries of precipitation and temperature fitted vs. observed.
-  prec.jags <- readRDS('/fs/data3/caverill/NEFI_microbial/worldclim2_uncertainty/precipitation_JAGS_model.rds')
-  temp.jags <- readRDS('/fs/data3/caverill/NEFI_microbial/worldclim2_uncertainty/temperature_JAGS_model.rds')
+  if(host == 'pecan2'){
+    #worldclim2 rasters
+    prec <- raster::raster('/fs/data3/caverill/WorldClim2/wc2.0_bio_30s_12.tif')
+    temp <- raster::raster('/fs/data3/caverill/WorldClim2/wc2.0_bio_30s_01.tif')
+    #JAGS uncertainty products
+    prec.jags <- readRDS('/fs/data3/caverill/NEFI_microbial/worldclim2_uncertainty/precipitation_JAGS_model.rds')
+    temp.jags <- readRDS('/fs/data3/caverill/NEFI_microbial/worldclim2_uncertainty/temperature_JAGS_model.rds')    
+  }
+  if(host == 'scc1'){
+    #worldclim2 rasters
+    prec <- raster::raster('/project/talbot-lab-data/caverill/worldclim2/wc2.0_bio_30s_12.tif')
+    temp <- raster::raster('/project/talbot-lab-data/caverill/worldclim2/wc2.0_bio_30s_01.tif')
+    #JAGS uncertainty products
+    prec.jags <- readRDS('/project/talbot-lab-data/caverill/worldclim2/precipitation_JAGS_model.rds')
+    temp.jags <- readRDS('/project/talbot-lab-data/caverill/worldclim2/temperature_JAGS_model.rds')    
+  }
+
   
   #extract worldclim2 predicted climate data.
   prec.obs <- raster::extract(prec, points)
