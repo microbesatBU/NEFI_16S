@@ -38,10 +38,10 @@ rownames(genus_esv) <- genus_esv$Group.1; genus_esv$Group.1 <- NULL
 
 # select only samples wanted
 phylum_esv <- phylum_esv[colnames(phylum_esv) %in% map$`#SampleID`]
-class_esv <- phylum_esv[colnames(phylum_esv) %in% map$`#SampleID`]
-order_esv <- phylum_esv[colnames(phylum_esv) %in% map$`#SampleID`]
-family_esv <- phylum_esv[colnames(phylum_esv) %in% map$`#SampleID`]
-genus_esv <- phylum_esv[colnames(phylum_esv) %in% map$`#SampleID`]
+class_esv <- class_esv[colnames(phylum_esv) %in% map$`#SampleID`]
+order_esv <- order_esv[colnames(phylum_esv) %in% map$`#SampleID`]
+family_esv <- family_esv[colnames(phylum_esv) %in% map$`#SampleID`]
+genus_esv <- genus_esv[colnames(phylum_esv) %in% map$`#SampleID`]
 
 #save esv files
 saveRDS(phylum_esv,"phylum_esv.rds")
