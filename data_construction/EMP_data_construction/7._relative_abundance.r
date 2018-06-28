@@ -1,13 +1,16 @@
+###Colin is pretty sure this entire script can be deleted based on his modification to script 6. I update dthe patbhs in script 8 to be accurate.
+
 #clear environment, set working directory
 rm(list=ls())
-setwd("~/Desktop/NEFI_16S_data/") #change to path with data
+source('paths.r')
+#setwd("~/Desktop/NEFI_16S_data/") #change to path with data
 
 #load esv with compositional data
-esv_phyla <- data.frame(readRDS("phylum_esv.rds"))
-esv_class <- data.frame(readRDS("class_esv.rds"))
-esv_order <- data.frame(readRDS("order_esv.rds"))
-esv_family <- data.frame(readRDS("family_esv.rds"))
-esv_genera <- data.frame(readRDS("genus_esv.rds"))
+ esv_phyla <- data.frame(readRDS(emp_phylum_esv.path))
+ esv_class <- data.frame(readRDS( emp_class_esv.path))
+ esv_order <- data.frame(readRDS( emp_order_esv.path))
+esv_family <- data.frame(readRDS(emp_family_esv.path))
+esv_genera <- data.frame(readRDS( emp_genus_esv.path))
 
 ### PHYLA ###
 #find the total number of sequences in each sample
