@@ -1,13 +1,16 @@
 # script to subset out only taxa that are found in 50%+ of samples
+#Katie- udpate the save paths. Put them in the paths.r file, and call them by their names in that file, rather than hard coding them here.
+#Finally, try rewriting this as a loop operating on each taxonomic data set stored in a list.
 rm(list=ls())
-setwd("~/Desktop/NEFI_16S_data/")
+source('paths.r')
+#setwd("~/Desktop/NEFI_16S_data/")
 
 #load the relative taxonomic data
-phyla <- readRDS("relative_abund_phyla.rds")
-classes <- readRDS("relative_abund_class.rds")
-order <- readRDS("relative_abund_order.rds")
-family <- readRDS("relative_abund_family.rds")
-genera <- readRDS("relative_abund_genera.rds")
+  phyla <- readRDS(emp_phylum_esv.path)
+classes <- readRDS( emp_class_esv.path)
+  order <- readRDS( emp_order_esv.path)
+ family <- readRDS(emp_family_esv.path)
+ genera <- readRDS( emp_genus_esv.path)
 
 # find number for half the samples
 n_half <- nrow(phyla)/2 #same for every level of taxonomy
