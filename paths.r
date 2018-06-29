@@ -15,6 +15,8 @@ if(host == 'pecan2'){data.dir <- '/fs/data3/caverill/NEFI_16S_data/'}
 if(host == 'scc1'  ){data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'}
 if(host == 'scc2'  ){data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'}
 if(host == 'Colins-MacBook-Pro.local'){data.dir <- '/Users/colin/Documents/rstudio_data/NEFI_16S_data'}
+if(host == '223-1-41-155-wireles1x.bu.edu'){data.dir <- '/Users/student/Desktop/NEFI_16S_data/'}
+if(host == 'Katie-laptop'){data.dir <- '/Users/Kathryn/Desktop/BU_REU/NEFI_16S_data/'}
 
 #raw EMP deblurred ESV table and mapping files.
 emp_esv.path <- paste0(data.dir,'emp_deblur_150bp.release1.biom')
