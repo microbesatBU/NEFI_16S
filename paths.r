@@ -8,6 +8,9 @@
 #.rds files can be loaded with "readRDS()", and saved with "saveRDS(R_object, path/to/file.rds)
 host <- system('hostname', intern=T)
 #data directory conditional to which computer you are working on.
+#defaults to scc directory.
+data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'
+#conditional data directory assignment.
 if(host == 'pecan2'){data.dir <- '/fs/data3/caverill/NEFI_16S_data/'}
 if(host == 'scc1'  ){data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'}
 if(host == 'scc2'  ){data.dir <- '/projectnb/talbot-lab-data/caverill/NEFI_16S_data/'}
@@ -17,9 +20,24 @@ if(host == 'Colins-MacBook-Pro.local'){data.dir <- '/Users/colin/Documents/rstud
 emp_esv.path <- paste0(data.dir,'emp_deblur_150bp.release1.biom')
 emp_map.path <- paste0(data.dir,'emp_qiime_mapping_release1.tsv')
 
+#.csv of EMP samples to keep for .biom filtering.
+emp_soil.csv_path <- paste0(data.dir,'emp_soil_IDs.csv')
+
 #processed and subsetted emp ESV and mapping files.
+emp_soil_biom.path <- paste0(data.dir,'emp_soils_ESV.biom')
 emp_map_clean.path <- paste0(data.dir,'emp_map_clean.rds')
 emp_esv_clean.path <- paste0(data.dir,'emp_esv_clean.rds')
+      emp_tax.path <- paste0(data.dir,'emp_tax.rds')
+      
+#Bacterial ESV tables aggregated by different levels of phylogeny.
+emp_phylum_esv.path <- paste0(data.dir,'emp_phylum_esv.path')
+ emp_class_esv.path <- paste0(data.dir,'emp_class_esv.path')
+ emp_order_esv.path <- paste0(data.dir,'emp_order_esv.path')
+emp_family_esv.path <- paste0(data.dir,'emp_family_esv.path')
+ emp_genus_esv.path <- paste0(data.dir,'emp_genus_esv.path')
+
+#greengenes training data path for RDP classifier.
+greengenes.path <- paste0(data.dir,'gg_13_8_train_set_97.fa')
 
 #example fungal data path.
 example_fungal.path <- paste0(data.dir,'ted_all_prior_data.rds')
