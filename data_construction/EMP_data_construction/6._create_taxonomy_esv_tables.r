@@ -2,7 +2,6 @@
 rm(list=ls())
 source('paths.r')
 source('project_functions/pro_norm_otu.r')
-#setwd("~/Desktop/NEFI_16S_data/") #change to path to taxonomic data
 
 #load the taxonomic assignments
 tax <- readRDS(emp_tax.path)
@@ -55,9 +54,9 @@ for(i in 1:length(data.list)){
 #save esv files
 #Katie- I've left the structure as you had it, with each level of phylogeny as a separate file.
 #However, you could just save the whole list, and load it up for the next script, and loop through the list as I did for the proportional normalization.
-#saveRDS(data.list, emp_phylo.level.list_esv.path) #This is how you save the whole list, you would still need to specify this path in paths.r
-saveRDS(data.list$phylum, emp_phylum_esv.path)
-saveRDS(data.list$class ,  emp_class_esv.path)
-saveRDS(data.list$order ,  emp_order_esv.path)
-saveRDS(data.list$family, emp_family_esv.path)
-saveRDS(data.list$genus ,  emp_genus_esv.path)
+saveRDS(data.list, emp_phylo.level.list_esv.path) #This is how you save the whole list, you would still need to specify this path in paths.r
+#saveRDS(data.list$phylum, emp_phylum_esv.path)
+#saveRDS(data.list$class ,  emp_class_esv.path)
+#saveRDS(data.list$order ,  emp_order_esv.path)
+#saveRDS(data.list$family, emp_family_esv.path)
+#saveRDS(data.list$genus ,  emp_genus_esv.path)
