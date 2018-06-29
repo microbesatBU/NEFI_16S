@@ -32,11 +32,12 @@ emp_esv_clean.path <- paste0(data.dir,'emp_esv_clean.rds')
       emp_tax.path <- paste0(data.dir,'emp_tax.rds')
       
 #Bacterial ESV tables aggregated by different levels of phylogeny.
-emp_phylum_esv.path <- paste0(data.dir,'emp_phylum_esv.path')
- emp_class_esv.path <- paste0(data.dir,'emp_class_esv.path')
- emp_order_esv.path <- paste0(data.dir,'emp_order_esv.path')
-emp_family_esv.path <- paste0(data.dir,'emp_family_esv.path')
- emp_genus_esv.path <- paste0(data.dir,'emp_genus_esv.path')
+emp_phylo.level.list_esv.path <- paste0(data.dir,'emp_phylo.level.list_esv.path')
+         #emp_phylum_esv.path <- paste0(data.dir,'emp_phylum_esv.path')
+          #emp_class_esv.path <- paste0(data.dir,'emp_class_esv.path')
+          #emp_order_esv.path <- paste0(data.dir,'emp_order_esv.path')
+         #emp_family_esv.path <- paste0(data.dir,'emp_family_esv.path')
+          #emp_genus_esv.path <- paste0(data.dir,'emp_genus_esv.path')
 
 #greengenes training data path for RDP classifier.
 greengenes.path <- paste0(data.dir,'gg_13_8_train_set_97.fa')
