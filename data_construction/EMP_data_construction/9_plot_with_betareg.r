@@ -1,16 +1,13 @@
 #looping models of fungal relative abundance.
 #clear environment, load packages.
 rm(list=ls())
-source('/Users/student/Downloads/NEFI_16S-master/paths.r')
+source('paths.r')
 library(betareg)
-setwd("~/Desktop/NEFI_16S_data/")
 
 #load some bacterial data
-map <- as.data.frame(readRDS(emp_map_clean.path)) #environmental metadata
+map <- readRDS(emp_phylo.level.list_esv.path) #environmental metadata
 rownames(map) <- map$`#SampleID`
-taxa <- as.data.frame(readRDS("phyla_top50.rds")) #relative abundance, replace file with desired level of taxonomy
-#manipulate the sample names to match the rownames of the map file
-rownames(taxa) <- gsub("X","",rownames(phyla))
+taxa <- readRDS(emp_phylo.level.list_esv.path) #relative abundance, replace file with desired level of taxonomy
 #match the sample names and merge data into one data frame
 d <- merge(map, taxa, by="row.names")
 
