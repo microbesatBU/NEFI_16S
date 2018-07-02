@@ -11,6 +11,10 @@ source('project_functions/arid_extract.r')
 #load 16S meta data file with lat/long
 d <- readRDS(emp_map_clean.path)
 
+#make sure things you are going to extract aren't already in dataframe. If they are, remove them so we dont double name things.
+to_remove <- c('mat','map','mat_sd','map_sd','mat_CV','map_CV','mdr','aridity','n.dep','dry.dep','wet.dep')
+d <- d[,!(colnames(d) %in% to_remove)]
+
 #extract worldclim.
 clim <- worldclim2_grab(d$latitude_deg,d$longitude_deg,d$elevation_m)
 clim$aridity <- arid_extract(d$latitude_deg,d$longitude_deg)
