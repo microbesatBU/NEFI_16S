@@ -20,4 +20,4 @@ for(i in 1:length(data.list)){
 }
 
 #save objects as RDS
-saveRDS(data.list, 'emp_phylo.level.list_esv.path')
+saveRDS(data.list, emp_phylo.level.list_esv.path)
