@@ -5,10 +5,10 @@ rm(list=ls())
 source('paths.r')
 
 #load the relative taxonomic data
-data <- readRDS(emp_phylo.level.list_esv.path)
+data.list <- readRDS(emp_phylo.level.list_esv.path)
 
 # find number for half the samples
-n_half <- ncol(data[[1]])/2 #same for every level of taxonomy
+n_half <- ncol(data.list[[1]])/2 #same for every level of taxonomy
 
 #loop through each data set to subset out only taxa found in 50%+ of samples
 for(i in 1:length(data.list)){
