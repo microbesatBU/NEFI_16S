@@ -60,6 +60,8 @@ for(k in 1:length(data.list)){
   observed.out <- data.frame(do.call('cbind', observed.out))
 
   #plot them all!
+  fname <- paste0('/Users/student/Desktop/NEFI_16S_results/',names(data.list)[k],'_',paste0(preds, collapse="_"),'_betareg.png')
+  png(filename = fname, width = 16, height = 7, units = 'in',res=300)
   par(mfrow = c(5,10)) # 5,6 for phyla; 5,10 for all other levels of taxonomy
   if(k == 1){
     par(mfrow = c(5,6))
@@ -68,10 +70,12 @@ for(k in 1:length(data.list)){
   for(i in 1:ncol(observed.out)){
     mod <- lm(observed.out[,i] ~ predicted.out[,i])
     rsq <- round(summary(mod)$r.squared, 2)
-    plot(observed.out[,i] ~ predicted.out[,i], cex = 0.3)
+    plot(observed.out[,i] ~ predicted.out[,i], cex = 0.3, col=d$study_id)
     mtext(colnames(observed.out)[i], side = 3, line = -1, adj = 0.05, cex = 0.8, col = 'purple')
     mtext(paste0('R2 = ',rsq), side = 3, line = -2.4, adj = 0.05, cex = 0.8, col = 'purple')
     #drop 1:1 line
     abline(0,1, lwd = 2)
   }
+  title(paste(names(data.list)[k], 'predicted with variables', paste(preds, collapse=', ')), outer=TRUE, line = -0.75)
+  dev.off()
 }
