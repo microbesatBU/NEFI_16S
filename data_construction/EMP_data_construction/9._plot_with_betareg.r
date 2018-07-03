@@ -70,7 +70,7 @@ for(k in 1:length(data.list)){
   for(i in 1:ncol(observed.out)){
     mod <- lm(observed.out[,i] ~ predicted.out[,i])
     rsq <- round(summary(mod)$r.squared, 2)
-    plot(observed.out[,i] ~ predicted.out[,i], cex = 0.3)
+    plot(observed.out[,i] ~ predicted.out[,i], cex = 0.3, col=d$study_id)
     mtext(colnames(observed.out)[i], side = 3, line = -1, adj = 0.05, cex = 0.8, col = 'purple')
     mtext(paste0('R2 = ',rsq), side = 3, line = -2.4, adj = 0.05, cex = 0.8, col = 'purple')
     #drop 1:1 line
