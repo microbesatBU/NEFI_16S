@@ -8,6 +8,9 @@ library(data.table)
 #frad imports data as a data.table object. We like data.table because it can manipulate LARGE data frames very quickly.
 raw.map <- fread(emp_map.path)
 
+#load the extra metadata from format metadata script
+metadata <- readRDS(emp_metadata.path)
+
 #Subset to soil observations.
 map <- raw.map[empo_3 == 'Soil (non-saline)' & envo_biome_1 == 'terrestrial biome',]
 
@@ -20,5 +23,8 @@ map <- map[!(envo_biome_3 %in% nope),]
 nope <- c(755,1711,1714)
 map <- map[!(study_id %in% nope),]
 
+#merge the mapping file with the metadata file
+map_new <- merge(map, metadata, by.x = "sample_name", by.y = "#SampleID")
+
 #save mapping file.
-saveRDS(map, emp_map_clean.path)
+saveRDS(map_new, emp_map_clean.path)
