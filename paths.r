@@ -22,6 +22,26 @@ if(host == 'Katie-laptop'){data.dir <- '/Users/Kathryn/Desktop/BU_REU/NEFI_16S_d
 emp_esv.path <- paste0(data.dir,'emp_deblur_150bp.release1.biom')
 emp_map.path <- paste0(data.dir,'emp_qiime_mapping_release1.tsv')
 
+#additional metadata files from qiita database
+emp_study632_metadata.path  <- paste0(data.dir, 'study_632.csv')
+emp_study722_metadata.path  <- paste0(data.dir, 'study_722.csv')
+emp_study808_metadata.path  <- paste0(data.dir, 'study_808.csv')
+emp_study864_metadata.path  <- paste0(data.dir, 'study_864.csv')
+emp_study895_metadata.path  <- paste0(data.dir, 'study_895.csv')
+emp_study990_metadata.path  <- paste0(data.dir, 'study_990.csv')
+emp_study1031_metadata.path <- paste0(data.dir, 'study_1031.csv')
+emp_study1037_metadata.path <- paste0(data.dir, 'study_1037.csv')
+emp_study1043_metadata.path <- paste0(data.dir, 'study_1043.csv')
+emp_study1521_metadata.path <- paste0(data.dir, 'study_1043.csv')
+emp_study1579_metadata.path <- paste0(data.dir, 'study_1579.csv')
+emp_study1674_metadata.path <- paste0(data.dir, 'study_1674.csv')
+emp_study1702_metadata.path <- paste0(data.dir, 'study_1702.csv')
+emp_study1716_metadata.path <- paste0(data.dir, 'study_1716.csv')
+emp_study1747_metadata.path <- paste0(data.dir, 'study_1747.csv')
+
+#overall metadata file
+emp_metadata.path <- paste0(data.dir, 'emp_metadata.rds')
+
 #.csv of EMP samples to keep for .biom filtering.
 emp_soil.csv_path <- paste0(data.dir,'emp_soil_IDs.csv')
 
