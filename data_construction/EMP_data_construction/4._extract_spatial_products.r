@@ -28,7 +28,6 @@ spatial <- cbind(ndep,clim)
 
 #remove any columns from previous spatial extractions, update with new extraction.
 d <- as.data.frame(d)
-d <- d[,!(colnames(test) %in% colnames(spatial))]
 d <- cbind(d,spatial)
 
 #save
