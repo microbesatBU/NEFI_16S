@@ -48,7 +48,32 @@ for(i in 1:length(data.list)){
   }
 }
 
-#make units consistent
+#ensure desired columns are numerics, not factors
+for(i in 1:length(data.list)){
+  if(colnames(data.list[[i]]) == 'c_n_ratio'){
+    data.list[[i]]$c_n_ratio <- as.numeric(data.list[[i]]$c_n_ratio)
+  }
+  if(colnames(data.list[[i]]) == 'percent_n'){
+    data.list[[i]]$percent_n <- as.numeric(data.list[[i]]$percent_n)
+  }
+  if(colnames(data.list[[i]]) == 'percent_c'){
+    data.list[[i]]$percent_c <- as.numeric(data.list[[i]]$percent_c)
+  }
+  if(colnames(data.list[[i]]) == 'water_content_soil'){
+    data.list[[i]]$water_content_soil <- as.numeric(data.list[[i]]$water_content_soil)
+  }
+  if(colnames(data.list[[i]]) == 'tot_nitro'){
+    data.list[[i]]$tot_nitro <- as.numeric(data.list[[i]]$tot_nitro)
+  }
+  if(colnames(data.list[[i]]) == 'tot_org_carb'){
+    data.list[[i]]$tot_org_carb <- as.numeric(data.list[[i]]$tot_org_carb)
+  }
+  if(colnames(data.list[[i]]) == 'tot_carb'){
+    data.list[[i]]$tot_carb <- as.numeric(data.list[[i]]$tot_carb)
+  }
+}
+
+#make units consistent and update column names
 #3.   808: water content: unknown units
 #11. 1579: water content: unknown units
 for(i in 1:length(data.list)){
