@@ -12,9 +12,15 @@
 #' @export
 #'
 #' @examples
-arid_extract <- function(latitude, longitude, path = '/fs/data3/caverill/Global_Aridity/aridity/w001001.adf'){
-  #path to Global Aridity Index raster.
-  path <- '/fs/data3/caverill/Global_Aridity/aridity/w001001.adf'
+arid_extract <- function(latitude, longitude, folder = '/project/talbot-lab-data/spatial_raster_data/Global_Aridity/'){
+  #get hostname
+  host <- system('hostname', intern=T)
+  
+  #Change directory if you are on pecan2
+  if(host == 'pecan2'){folder <- '/fs/data3/caverill/Global_Aridity/'}
+  
+  #drop path.
+  path <- paste0(folder,'aridity/w001001.adf')
   
   #load raster
   arid <- raster::raster(path)

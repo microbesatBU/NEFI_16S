@@ -12,7 +12,14 @@
 #'
 #' @examples
 
-extract_ndep <- function(longitude,latitude,folder='/fs/data3/caverill/CASTNET_Ndep/'){
+extract_ndep <- function(longitude,latitude,folder='/project/talbot-lab-data/spatial_raster_data/CASTNET_Ndep/'){
+  
+  #get hostname
+  host <- system('hostname', intern=T)
+  
+  #if you are on pecan2 go here instead.
+  if(host == 'pecan2'){folder <- '/fs/data3/caverill/CASTNET_Ndep/'}
+  
   #load dry deposition rasters
   dry.list <- list()
   for(i in 0:15){
