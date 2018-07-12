@@ -50,25 +50,28 @@ for(i in 1:length(data.list)){
 
 #ensure desired columns are numerics, not factors
 for(i in 1:length(data.list)){
-  if(colnames(data.list[[i]]) == 'c_n_ratio'){
+  if('sample_name' %in% colnames(data.list[[i]])){
+    data.list[[i]]$sample_name <- as.numeric(data.list[[i]]$sample_name)
+  }
+  if('c_n_ratio' %in% colnames(data.list[[i]])){
     data.list[[i]]$c_n_ratio <- as.numeric(data.list[[i]]$c_n_ratio)
   }
-  if(colnames(data.list[[i]]) == 'percent_n'){
+  if('percent_n' %in% colnames(data.list[[i]])){
     data.list[[i]]$percent_n <- as.numeric(data.list[[i]]$percent_n)
   }
-  if(colnames(data.list[[i]]) == 'percent_c'){
+  if('percent_c' %in% colnames(data.list[[i]])){
     data.list[[i]]$percent_c <- as.numeric(data.list[[i]]$percent_c)
   }
-  if(colnames(data.list[[i]]) == 'water_content_soil'){
+  if('water_content_soil' %in% colnames(data.list[[i]])){
     data.list[[i]]$water_content_soil <- as.numeric(data.list[[i]]$water_content_soil)
   }
-  if(colnames(data.list[[i]]) == 'tot_nitro'){
+  if('tot_nitro' %in% colnames(data.list[[i]])){
     data.list[[i]]$tot_nitro <- as.numeric(data.list[[i]]$tot_nitro)
   }
-  if(colnames(data.list[[i]]) == 'tot_org_carb'){
+  if('tot_org_carb' %in% colnames(data.list[[i]])){
     data.list[[i]]$tot_org_carb <- as.numeric(data.list[[i]]$tot_org_carb)
   }
-  if(colnames(data.list[[i]]) == 'tot_carb'){
+  if('tot_carb' %in% colnames(data.list[[i]])){
     data.list[[i]]$tot_carb <- as.numeric(data.list[[i]]$tot_carb)
   }
 }
@@ -77,15 +80,15 @@ for(i in 1:length(data.list)){
 #3.   808: water content: unknown units
 #11. 1579: water content: unknown units
 for(i in 1:length(data.list)){
-  if(colnames(data.list[[i]]) == 'tot_nitro'){
+  if('tot_nitro' %in% colnames(data.list[[i]])){
     data.list[[i]]$tot_nitro <- data.list[[i]]$tot_nitro / 1000 * 100
     colnames(data.list[[i]])[colnames(data.list[[i]]) == 'tot_nitro'] <- 'percent_n'
   }
-  if(colnames(data.list[[i]]) == 'tot_org_carb'){
+  if('tot_org_carb' %in% colnames(data.list[[i]])){
     data.list[[i]]$tot_org_carb <- data.list[[i]]$tot_org_carb / 1000 * 100
     colnames(data.list[[i]])[colnames(data.list[[i]]) == 'tot_org_carb'] <- 'percent_org_c'
   }
-  if(colnames(data.list[[i]]) == 'tot_carb'){
+  if('tot_carb' %in% colnames(data.list[[i]])){
     data.list[[i]]$tot_carb <- data.list[[i]]$tot_carb / 1000 * 100
     colnames(data.list[[i]])[colnames(data.list[[i]]) == 'tot_carb'] <- 'percent_c'
   }
