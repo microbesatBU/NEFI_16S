@@ -5,22 +5,24 @@ source('paths.r')
 library(betareg)
 
 #load some bacterial data
-map <- readRDS(emp_map_clean.path) #environmental metadata
+map <- readRDS(emp_map_metadata.path) #environmental metadata
+map <- unique(map[,1:95])
 rownames(map) <- map$`#SampleID`
 data.list <- readRDS(emp_phylo.level.list_esv.path) #relative abundance 
 
 for(k in 1:length(data.list)){
-  taxa <- t(data.list[[k]])
+     taxa <- t(data.list[[k]])
+  taxa$ID <- rownames(taxa
   #match the sample names and merge data into one data frame
   d <- data.frame()
-  d <- merge(map, taxa, by="row.names")
+  d <- merge(map, taxa, by.x = '#SampleID', by.y = 'ID')
 
   #isolate y data (relative abundance)
-  # 89:118 for phyla, 89:138 for all other levels of taxonomy
-  y <- d[89:118]
+  # 96:125 for phyla, 96:145 for all other levels of taxonomy
+  y <- d[,96:125]
   
   if(k > 1){
-    y <- d[89:138]
+    y <- d[,96:1345
   }
 
   #we need to transform y data to not have any hard zeros or 1s. This is a limitation of beta regression.
