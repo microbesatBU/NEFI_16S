@@ -42,6 +42,9 @@ emp_study1747_metadata.path <- paste0(data.dir, 'study_1747.csv')
 #overall metadata file
 emp_metadata.path <- paste0(data.dir, 'emp_metadata.rds')
 
+#map and metadata file merged
+emp_map_metadata.path <- paste0(data.dir, 'emp_map_metadata.rds')
+
 #.csv of EMP samples to keep for .biom filtering.
 emp_soil.csv_path <- paste0(data.dir,'emp_soil_IDs.csv')
 
