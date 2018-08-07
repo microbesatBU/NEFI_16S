@@ -18,6 +18,9 @@ if(host == 'Colins-MacBook-Pro.local'){data.dir <- '/Users/colin/Documents/rstud
 if(host == '223-1-41-155-wireles1x.bu.edu'){data.dir <- '/Users/student/Desktop/NEFI_16S_data/'}
 if(host == 'Katie-laptop'){data.dir <- '/Users/Kathryn/Desktop/BU_REU/NEFI_16S_data/'}
 
+#bahram test directory with fastq piles.
+bahram_test.dir <- paste0(data.dir,'bahram_test')
+
 #raw EMP deblurred ESV table and mapping files.
 emp_esv.path <- paste0(data.dir,'emp_deblur_150bp.release1.biom')
 emp_map.path <- paste0(data.dir,'emp_qiime_mapping_release1.tsv')
