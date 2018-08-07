@@ -22,6 +22,7 @@ if(host == 'Katie-laptop'){data.dir <- '/Users/Kathryn/Desktop/BU_REU/NEFI_16S_d
 bahram_test.dir <- paste0(data.dir,'bahram_test')
 bahram_dir <- paste0(data.dir,'bahram_2018_seqs')
 
+
 #raw EMP deblurred ESV table and mapping files.
 emp_esv.path <- paste0(data.dir,'emp_deblur_150bp.release1.biom')
 emp_map.path <- paste0(data.dir,'emp_qiime_mapping_release1.tsv')
