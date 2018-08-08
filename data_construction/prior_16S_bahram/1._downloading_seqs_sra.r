@@ -2,9 +2,9 @@
 #note: this could go faster using the aspera connect tools. But this works.
 #clear environment, load packages.
 rm(list=ls())
-source(paths.r)
-source('http://bioconductor.org/biocLite.R')
-biocLite('SRAdb')
+source('paths.r')
+#source('http://bioconductor.org/biocLite.R')
+#biocLite('SRAdb')
 library(SRAdb)
 srafile = getSRAdbFile()
 con = dbConnect(RSQLite::SQLite(),srafile) #this takes a frickin minute. 2.3G.

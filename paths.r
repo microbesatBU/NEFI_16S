@@ -21,6 +21,11 @@ if(host == 'Katie-laptop'){data.dir <- '/Users/Kathryn/Desktop/BU_REU/NEFI_16S_d
 #bahram test directory with fastq piles.
 bahram_test.dir <- paste0(data.dir,'bahram_test')
 bahram_dir <- paste0(data.dir,'bahram_2018_seqs')
+#make bahram directories if they dont exist.
+cmd1 <- paste0('mkdir -p ',bahram_test.dir)
+cmd2 <- paste0('mkdir -p ',bahram_dir)
+system(cmd1)
+system(cmd2)
 
 
 #raw EMP deblurred ESV table and mapping files.
