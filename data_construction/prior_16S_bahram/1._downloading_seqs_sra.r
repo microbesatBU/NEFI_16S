@@ -23,5 +23,6 @@ system(cmd)
 
 #clean up. Remove SRAdb sqlite file.
 system('rm SRAmetadb.sqlite')
+system('rm SRAmetadb.sqlite.gz')
 
 #end script.

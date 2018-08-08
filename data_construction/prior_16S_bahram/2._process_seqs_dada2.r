@@ -18,7 +18,8 @@ source('project_functions/tic_toc.r')
 #specify forward and reverse read motifs. 
 #in an ideal world, this is all you would need to input.
 #Should have this output all figures and summary of which reads passed as separate files to check.
-path <- bahram_test.dir
+#path <- bahram_test.dir
+path <- bahram_dir
 forward.read.motif <- '_1.fastq'
 reverse.read.motif <- '_2.fastq'
 
@@ -150,4 +151,5 @@ saveRDS(seqtab.nochim, esv.table.path)
 #error rate plot.
 #plotErrors(errF, nominalQ = T)
 
+cat('Analysis complete.')
 #end script.

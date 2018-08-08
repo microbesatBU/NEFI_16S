@@ -1,5 +1,5 @@
 #!/bin/bash -l
-#This script is for Downloading all sequences associated with Bahram et al. 2018 fromt he SRA. 235 samples, 470 files.
+#This script is for Downloading all sequences associated with Bahram et al. 2018 fromt the SRA. 235 samples, 470 files.
 #
 ########################################
 ####      commands for scc qsub     ####
