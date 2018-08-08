@@ -36,7 +36,11 @@ module load python/2.7.7
 cd /usr2/postdoc/caverill/Rstudio_projects/NEFI_16S
 #
 # in the directory specified above, invoke this function:
+<<<<<<< HEAD
 Rscript data_construction/prior_16S_bahram/1._downloading_seqs_sra.r
+=======
+Rscript data_construction/prior_16S_bahram/1.downloading_seqs_sra.r
+>>>>>>> 39689b8a968fe97827d3fda34b01f9b30a0ae520
 #
 #
 #End of commands.
