@@ -69,3 +69,7 @@ dp1.10108.00_output.path <- paste0(data.dir,'dp1.10108.00_output.rds')
 dp1.10109.00_output.path <- paste0(data.dir,'dp1.10109.00_output.rds')
 dp1.10086.00_output.path <- paste0(data.dir,'dp1.10086.00_output.rds')
 dp1.10078.00_output.path <- paste0(data.dir,'dp1.10078.00_output.rds')
+
+# NCBI Table linking SRA Identifier to Sample Name
+SRA_to_Sample.path <- paste0(data.dir, 'SRARunTable.txt')
+sra_sample_link.path <- paste0(data.dir, 'SRA_sample_link.rds')
