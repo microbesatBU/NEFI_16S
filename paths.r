@@ -27,6 +27,10 @@ cmd2 <- paste0('mkdir -p ',bahram_dir)
 system(cmd1)
 system(cmd2)
 
+#bahram community paths.
+bahram_esv.path <- paste0(bahram_dir,'/dada2_output/esv_table.rds')
+bahram_tax.path <- paste0(bahram_dir,'/dada2_output/tax_table.rds')
+
 
 #raw EMP deblurred ESV table and mapping files.
 emp_esv.path <- paste0(data.dir,'emp_deblur_150bp.release1.biom')

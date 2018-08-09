@@ -9,8 +9,8 @@ source('NEFI_functions/tic_toc.r')
 library(doParallel)
 
 #load otu table where rownames are unique sequences.
-otu <- readRDS(bahram_esv_path)
-tax_output_path <- bahram_tax_path
+otu <- readRDS(bahram_esv.path)
+tax_output_path <- bahram_tax.path
 
 #Everything from here below *should* just run and save where you told it to.
 #download greengenes reference database.
