@@ -5,7 +5,7 @@
 #clear environment, source paths.
 rm(list=ls())
 source('paths.r')
-source('NEFI_functions/tic_toc.r')
+source('project_functions/tic_toc.r')
 library(doParallel)
 
 #load otu table where rownames are unique sequences.
@@ -26,7 +26,7 @@ n <- detectCores()
 registerDoParallel(cores=n)
 
 #set breakpoints for subsetting taxonomy list.
-to_assign <- rownames(otu)
+to_assign <- colnames(otu)
 brk <- round(length(to_assign) / n)
 
 #use a foreach loop to do this in parallel on subsets.
