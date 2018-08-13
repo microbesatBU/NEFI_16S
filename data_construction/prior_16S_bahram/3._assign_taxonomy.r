@@ -8,8 +8,11 @@ source('paths.r')
 source('project_functions/tic_toc.r')
 library(doParallel)
 
-#load otu table where rownames are unique sequences.
+#Here i load an OTU table with column names as unique sequences to assign.
 otu <- readRDS(bahram_esv.path)
+to_assign <- colnames(otu) #grab sequences to assign.
+
+#specify output path here.
 tax_output_path <- bahram_tax.path
 
 #Everything from here below *should* just run and save where you told it to.
