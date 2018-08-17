@@ -9,11 +9,11 @@
 host <- system('hostname', intern=T)
 #data directory conditional to which computer you are working on.
 #defaults to scc directory.
-data.dir <- '/project/talbot-lab-data/NEFI_16S_data/'
+data.dir <- '/projectnb/talbot-lab-data/NEFI_16S_data/'
 #conditional data directory assignment.
 if(host == 'pecan2'){data.dir <- '/fs/data3/caverill/NEFI_16S_data/'}
-if(host == 'scc1'  ){data.dir <- '/project/talbot-lab-data/NEFI_16S_data/'}
-if(host == 'scc2'  ){data.dir <- '/project/talbot-lab-data/NEFI_16S_data/'}
+if(host == 'scc1'  ){data.dir <- '/projectnb/talbot-lab-data/NEFI_16S_data/'}
+if(host == 'scc2'  ){data.dir <- '/projectnb/talbot-lab-data/NEFI_16S_data/'}
 if(host == 'Colins-MacBook-Pro.local'){data.dir <- '/Users/colin/Documents/rstudio_data/NEFI_16S_data'}
 if(host == '223-1-41-155-wireles1x.bu.edu'){data.dir <- '/Users/student/Desktop/NEFI_16S_data/'}
 if(host == 'Katie-laptop'){data.dir <- '/Users/Kathryn/Desktop/BU_REU/NEFI_16S_data/'}
